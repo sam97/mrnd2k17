@@ -6,7 +6,7 @@ body {
 
 #root {
   height: 100vh; /* Set height to screen's height. */
-  width: 100vh; /* Set width to screen's width. */
+  width: 100vw; /* Set width to screen's width. */
 
   /* Flexbox-related styling. */
   display: flex; /* Make this a Flexbox (flexible boxing) container. */

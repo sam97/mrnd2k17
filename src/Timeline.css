@@ -1,0 +1,21 @@
+.timeline {
+	padding: 1em 0; /* Give space from other items. */
+}
+
+.timeline ul {
+	list-style: none; /* Remove the list bullets. */
+	overflow: auto; /* Let browsers handle overflow. Adds a scrollbar if needed. */
+	padding: 0 1em; /* Some padding to the left and right. */
+	margin: 0; /* Remove margin in favour of padding on .timeline. */
+	
+	/* Flexbox */
+    display: flex; /* Make it a container. (Yes, it's a nested container.) */
+    flex-flow: row nowrap;
+    justify-content: flex-start; 
+}
+
+.timeline li {
+	flex: 1 1 auto; /* Have the nodes take all the width evenly. */
+	min-width: 5em; /* Don't get shorter than this. */
+	text-align: center;
+}
