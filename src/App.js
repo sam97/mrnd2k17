@@ -12,8 +12,11 @@ class App extends Component {
 		/* Supposed to be the data store.  */
 		var timeline = [
 			{
+				// The date of that day.
 				date: new Date(2017, 9, 1),
+				// What happened on that day. (Better name?)
 				desc: "somethin' happened on the 1st",
+				// My personal opinions of that day. 'null' means I have nothing to say.
 				personalNote: "personell stuff, m8, bugger off"
 			},
 			{
@@ -29,23 +32,27 @@ class App extends Component {
 			{
 				date: new Date(2017, 9, 4),
 				desc: "somethin' happened on the fourth",
-				personalNote: "personell stuff, m8, bugger off"
+				personalNote: null
 			}
 		];
 		
 		this.state = {
-			presentDay: timeline[0],
-			headerDate: timeline[0].date,
-			timeline: timeline
+			presentDay: timeline[0], // The day's events are shown in DayDetails.
+			headerDate: timeline[0].date, // The day to show in the header.
+			timeline: timeline // The actual data.
 		}
 	}
 
+	/* Set the header date on hover.
+	 */
 	onTimelineMouseOver(newDate) {
 		this.setState({
 			headerDate: newDate
 		})
 	}
 
+	/* Reset the header date on mouseOut.
+	 */
 	onTimelineMouseOut() {
 		this.setState(prevState => {
 			return {
@@ -54,6 +61,9 @@ class App extends Component {
 		})
 	}
 
+	/* Fix the header date on click.
+	 * TODO: Set DayDetails, too.
+	 */
 	onTimelineClick(newDay) {
 		this.setState({
 			presentDay: newDay

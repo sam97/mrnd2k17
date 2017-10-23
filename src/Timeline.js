@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Timeline.css'
 
+/* An <li> tag holding the representation of a time node.
+ */
 function TimeNode(props) {
 	return (
 		<li>
