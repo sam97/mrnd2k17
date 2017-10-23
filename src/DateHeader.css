@@ -1,0 +1,8 @@
+.dateheader {
+    width: 100vw; /* Set header as wide as browser window. */
+    text-align: center; 
+    font-size: 1.5em; /* Set font size to 1.5 times its size. */
+    padding: 0.5em 0; /* Give a padding of half the font size at top and bottom. */
+
+    align-self: flex-start; /* Keep Header at the top. */
+}

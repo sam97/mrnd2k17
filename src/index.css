@@ -3,3 +3,13 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+#root {
+  height: 100vh; /* Set height to screen's height. */
+  width: 100vh; /* Set width to screen's width. */
+
+  /* Flexbox-related styling. */
+  display: flex; /* Make this a Flexbox (flexible boxing) container. */
+  flex-flow: column nowrap; /* Stack items/boxes column-wise without wrapping. */
+  justify-content: flex-start; /* Stack all items to the top. */
+}

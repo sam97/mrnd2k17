@@ -6,20 +6,31 @@ import DayDetails from './DayDetails'
 import Footer from './Footer'
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+
+		/* Supposed to be the data store.  */
+		this.state = {
+			presentDay: new Date()
+		}
+	}
+
 	render() {
 		return (
-			<div>
-				<DateHeader />
-				<Timeline>
+			// <div>
+				[
+					<DateHeader key={1} date={this.state.presentDay} />,
+					(<Timeline key={2}>
 
-				</Timeline>
-				<DayDetails>
+					</Timeline>),
+					(<DayDetails key={3}>
 
-				</DayDetails>
-				<Footer>
+					</DayDetails>),
+					(<Footer key={4}>
 
-				</Footer>
-			</div>
+					</Footer>)
+				]
+			// </div>
 		);
 	}
 }
