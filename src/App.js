@@ -76,7 +76,8 @@ class App extends Component {
 				[
 					<DateHeader key={1} date={this.state.headerDate} />,
 					<Timeline key={2}
-					          timeline={this.state.timeline}
+							  timeline={this.state.timeline}
+							  presentDay={this.state.presentDay}
 					          onMouseOver={newDate => this.onTimelineMouseOver(newDate)}
 							  onMouseOut={() => this.onTimelineMouseOut()}
 							  onClick={newDay => this.onTimelineClick(newDay)}

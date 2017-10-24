@@ -5,14 +5,13 @@ import './Timeline.css'
  */
 function TimeNode(props) {
 	return (
-		<li>
-			<span onMouseOver={props.onMouseOver}
-				  onMouseOut={props.onMouseOut}
-				  onClick={props.onClick}
-			>
-				X
-			</span>
-		</li>
+		<span className={"timenode" + (props.isActive ? " active" : "")}
+			onMouseOver={props.onMouseOver}
+			onMouseOut={props.onMouseOut}
+			onClick={props.onClick}
+		>
+			<div></div>
+		</span>
 	);
 }
 
@@ -26,16 +25,15 @@ class Timeline extends Component {
 	render() {
 		return (
 			<div className="timeline">
-				<ul>
-					{this.props.timeline.map(day => {
-						return (
-							<TimeNode onMouseOver={() => this.props.onMouseOver(day.date)}
-							          onMouseOut={this.props.onMouseOut}
-							          onClick={() => this.props.onClick(day)}
-							/>
-						);
-					})}
-				</ul>
+				{this.props.timeline.map(day => {
+					return (
+						<TimeNode isActive={day.date.toString() === this.props.presentDay.date.toString()}
+							onMouseOver={() => this.props.onMouseOver(day.date)}
+							onMouseOut={this.props.onMouseOut}
+							onClick={() => this.props.onClick(day)}
+						/>
+					);
+				})}
 			</div>
 		)
 	}
