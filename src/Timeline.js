@@ -23,14 +23,17 @@ class Timeline extends Component {
 	}
 
 	render() {
+		var currentDate = this.props.currentDate;
+
 		return (
 			<div className="timeline">
-				{this.props.timeline.map(day => {
+				{this.props.timeline.map(dayData => {
 					return (
-						<TimeNode isActive={day.date.toString() === this.props.presentDay.date.toString()}
-							onMouseOver={() => this.props.onMouseOver(day.date)}
+						<TimeNode
+							isActive={dayData.date.toString() === currentDate.toString()}
+							onMouseOver={() => this.props.onMouseOver(dayData.date)}
 							onMouseOut={this.props.onMouseOut}
-							onClick={() => this.props.onClick(day)}
+							onClick={() => this.props.onClick(dayData)}
 						/>
 					);
 				})}

@@ -37,7 +37,7 @@ class App extends Component {
 		];
 		
 		this.state = {
-			presentDay: timeline[0], // The day's events are shown in DayDetails.
+			currentDayData: timeline[0], // This day's events are shown in DayDetails.
 			headerDate: timeline[0].date, // The day to show in the header.
 			timeline: timeline // The actual data.
 		}
@@ -48,7 +48,7 @@ class App extends Component {
 	onTimelineMouseOver(newDate) {
 		this.setState({
 			headerDate: newDate
-		})
+		});
 	}
 
 	/* Reset the header date on mouseOut.
@@ -56,9 +56,9 @@ class App extends Component {
 	onTimelineMouseOut() {
 		this.setState(prevState => {
 			return {
-				headerDate: prevState.presentDay.date
+				headerDate: prevState.currentDayData.date
 			}
-		})
+		});
 	}
 
 	/* Fix the header date on click.
@@ -66,29 +66,25 @@ class App extends Component {
 	 */
 	onTimelineClick(newDay) {
 		this.setState({
-			presentDay: newDay
-		})
+			currentDayData: newDay
+		});
 	}
 
 	render() {
 		return (
 			// <div>
-				[
-					<DateHeader key={1} date={this.state.headerDate} />,
-					<Timeline key={2}
-							  timeline={this.state.timeline}
-							  presentDay={this.state.presentDay}
-					          onMouseOver={newDate => this.onTimelineMouseOver(newDate)}
-							  onMouseOut={() => this.onTimelineMouseOut()}
-							  onClick={newDay => this.onTimelineClick(newDay)}
-					 />,
-					(<DayDetails key={3}>
-
-					</DayDetails>),
-					(<Footer key={4}>
-
-					</Footer>)
-				]
+			[
+				<DateHeader key={1} date={this.state.headerDate} />,
+				<Timeline key={2}
+					timeline={this.state.timeline}
+					currentDate={this.state.currentDayData.date}
+					onMouseOver={newDate => this.onTimelineMouseOver(newDate)}
+					onMouseOut={() => this.onTimelineMouseOut()}
+					onClick={newDay => this.onTimelineClick(newDay)}
+				/>,
+				<DayDetails key={3} details={this.state.currentDayData} />,
+				<Footer key={4} />
+			]
 			// </div>
 		);
 	}
