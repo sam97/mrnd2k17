@@ -1,5 +1,6 @@
 .daydetails {
 	width: 50vw;
+	background-color: whitesmoke;
 	border: 1px solid lightgray;
 	margin: 1em 0;
 
@@ -8,4 +9,36 @@
 	align-self: center; /* Align to center across cross-axis (row). */
 }
 
-/* TODO: media width resizing. */
+/* Media queries for various widths. */
+@media (max-width: 320px) {
+	/* Small width. Take the whole screen. */
+	.daydetails {
+		width: 100vw;
+	}
+}
+
+@media (max-width: 420px) and (min-width: 321px) {
+	/* Medium width. Like phones on portrait. */
+	.daydetails {
+		width: 80vw;
+	}
+}
+
+@media (max-width: 520px) and (min-width: 421px) {
+	/* Slightly bigger than medium. Like landscape on older phones. */
+	.daydetails {
+		width: 75vw;
+	}
+}
+
+@media (max-width: 1440px) and (min-width: 521px) {
+	.daydetails {
+		width: 60vw;
+	}
+}
+
+@media (min-width: 1441px) {
+	.daydetails {
+		width: 768px;
+	}
+}
