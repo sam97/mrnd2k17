@@ -1,3 +1,11 @@
 .daydetails {
+	width: 50vw;
+	border: 1px solid lightgray;
+	margin: 1em 0;
+
+	/* Flexbox stuff */
 	flex-grow: 1; /* Take the rest of the space. */
+	align-self: center; /* Align to center across cross-axis (row). */
 }
+
+/* TODO: media width resizing. */
