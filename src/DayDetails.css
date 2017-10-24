@@ -1,0 +1,3 @@
+.daydetails {
+	flex-grow: 1; /* Take the rest of the space. */
+}

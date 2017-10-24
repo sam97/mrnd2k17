@@ -5,7 +5,7 @@ body {
 }
 
 #root {
-  height: 100vh; /* Set height to screen's height. */
+  min-height: 100vh; /* Set minumum height to screen's height. */
   width: 100vw; /* Set width to screen's width. */
 
   /* Flexbox-related styling. */

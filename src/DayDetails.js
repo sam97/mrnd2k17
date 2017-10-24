@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './DayDetails.css'
 
 class DayDetails extends Component {
 	render() {
