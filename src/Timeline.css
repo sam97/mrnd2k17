@@ -1,6 +1,6 @@
 .timeline {
 	overflow: auto; /* Let browsers handle overflow. Adds a scrollbar if needed. */
-	padding: 0.7em 1em; /* Some padding. */
+	padding: 0 1em; /* Some padding. */
 	margin: 0; /* Remove margin in favour of padding on .timeline. */
 	background-color: lightyellow;
 	
@@ -14,10 +14,13 @@
 	flex: 1 1 auto; /* Have the nodes take all the width evenly. */
 	min-width: 5em; /* Don't get shorter than this. */
 	opacity: 0.3; /* Fade non-active nodes. */
+	cursor: pointer;
+	padding: 0.7em 0;
 }
 
 .timenode:hover, .active {
 	opacity: 1;
+	background-color: lightgoldenrodyellow;
 }
 
 /* Representation of the timenode. */
