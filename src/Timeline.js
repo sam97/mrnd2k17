@@ -27,13 +27,14 @@ class Timeline extends Component {
 
 		return (
 			<div className="timeline">
-				{this.props.timeline.map(dayData => {
+				{this.props.timeline.map((dayData, index) => {
 					return (
 						<TimeNode
+							key={index} // To shut the debugger up.
 							isActive={dayData.date.toString() === currentDate.toString()}
 							onMouseOver={() => this.props.onMouseOver(dayData.date)}
 							onMouseOut={this.props.onMouseOut}
-							onClick={() => this.props.onClick(dayData)}
+							onClick={() => this.props.onClick(dayData, index)}
 						/>
 					);
 				})}

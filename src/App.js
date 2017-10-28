@@ -38,6 +38,7 @@ class App extends Component {
 		
 		this.state = {
 			currentDayData: timeline[0], // This day's events are shown in DayDetails.
+			currentDayNum: 0, // Number of the current day. Starts from zero, 'cuz programming.
 			headerDate: timeline[0].date, // The day to show in the header.
 			timeline: timeline // The actual data.
 		}
@@ -64,9 +65,10 @@ class App extends Component {
 	/* Fix the header date on click.
 	 * TODO: Set DayDetails, too.
 	 */
-	onTimelineClick(newDay) {
+	onTimelineClick(newDay, index) {
 		this.setState({
-			currentDayData: newDay
+			currentDayData: newDay,
+			currentDayNum: index
 		});
 	}
 
@@ -80,9 +82,9 @@ class App extends Component {
 					currentDate={this.state.currentDayData.date}
 					onMouseOver={newDate => this.onTimelineMouseOver(newDate)}
 					onMouseOut={() => this.onTimelineMouseOut()}
-					onClick={newDay => this.onTimelineClick(newDay)}
+					onClick={(newDay, index) => this.onTimelineClick(newDay, index)}
 				/>,
-				<DayDetails key={3} details={this.state.currentDayData} />,
+				<DayDetails key={3} details={this.state.currentDayData} day={this.state.currentDayNum} />,
 				<Footer key={4} />
 			]
 			// </div>
