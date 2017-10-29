@@ -3,6 +3,7 @@
 	background-color: whitesmoke;
 	border: 1px solid lightgray;
 	margin: 1em 0;
+	padding: 0.5em;
 
 	/* Flexbox stuff */
 	flex-grow: 1; /* Take the rest of the space. */
@@ -32,12 +33,14 @@
 }
 
 @media (max-width: 1440px) and (min-width: 521px) {
+	/* Laptops and monitors and stuff... */
 	.daydetails {
 		width: 60vw;
 	}
 }
 
 @media (min-width: 1441px) {
+	/* Nice! */
 	.daydetails {
 		width: 768px;
 	}

@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import './DateHeader.css';
 
 class DateHeader extends Component {
-	constructor(props) {
-		super(props);
-
+	render() {
+		var prettyString = "";
 		// Months of a year to generate date string.
 		var months = [
 			"January",
@@ -21,15 +20,14 @@ class DateHeader extends Component {
 			"December"
 		]
 
-		/* A function to print the date in the format "{date} of {month}, {year}."
-		 * Add it to the object's prototype to make it a method.
-		 * (Why? Because I can.)
-		 */
-		props.date.__proto__.toPrettyString = function() {
-			var date = this.getDate();
-			var month = months[this.getMonth()];
-			var year = this.getFullYear();
-			var supTag; // What to put in the <sup> tag.
+		if(typeof this.props.date === "string")
+			prettyString = <span>{this.props.date}<sup></sup></span>; // sup tag for aligning.
+		else if(this.props.date instanceof Date) {
+			// Print the date in the format "{date} of {month}, {year}.
+			let date = this.props.date.getDate();
+			let month = months[this.props.date.getMonth()];
+			let year = this.props.date.getFullYear();
+			let supTag; // What to put in the <sup> tag.
 			if(date % 10 === 1)
 				supTag = "st";
 			else if(date % 10 === 2)
@@ -40,18 +38,12 @@ class DateHeader extends Component {
 				supTag = "th";
 			
 			// In a span tag because you need to return a single DOM element.
-			return (
-				<span>{date}<sup>{supTag}</sup> of {month}, {year}</span>
-			);
+			prettyString = <span>{date}<sup>{supTag}</sup> of {month}, {year}</span>;
 		}
-
-		props.date.toPrettyString.bind(props.date); // To make use of 'this' in the method.
-	}
-
-	render() {
+		
 		return (
 			<header className="dateheader">
-				{this.props.date.toPrettyString()}
+				{prettyString}
 			</header>
 		)
 	}

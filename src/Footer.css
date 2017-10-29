@@ -13,6 +13,10 @@
 	margin: 0 0.5em;
 }
 
+.footer a:first-child {
+	opacity: 1;
+}
+
 .footer a:hover {
 	opacity: 1;
 }

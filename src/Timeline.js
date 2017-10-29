@@ -10,7 +10,7 @@ function TimeNode(props) {
 			onMouseOut={props.onMouseOut}
 			onClick={props.onClick}
 		>
-			<div></div>
+			<div>{/* Modified with CSS to represent the node. */}</div>
 		</span>
 	);
 }
@@ -23,7 +23,8 @@ class Timeline extends Component {
 	}
 
 	render() {
-		var currentDate = this.props.currentDate;
+		var isDate = this.props.currentDate instanceof Date;
+		var DateString = isDate ? this.props.currentDate.toString() : null;
 
 		return (
 			<div className="timeline">
@@ -31,7 +32,7 @@ class Timeline extends Component {
 					return (
 						<TimeNode
 							key={index} // To shut the debugger up.
-							isActive={dayData.date.toString() === currentDate.toString()}
+							isActive={isDate && dayData.date.toString() === DateString}
 							onMouseOver={() => this.props.onMouseOver(dayData.date)}
 							onMouseOut={this.props.onMouseOut}
 							onClick={() => this.props.onClick(dayData, index)}
