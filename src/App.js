@@ -6,8 +6,8 @@ import DayDetails from './DayDetails'
 import Footer from './Footer'
 
 import Overview from './Footer/Overview'
-// import About from './About'
-// import Credits from './Credits'
+import About from './Footer/About'
+import Credits from './Footer/Credits'
 
 // Constants defining what to render.
 const OVERVIEW = 0;
@@ -20,8 +20,8 @@ const HEADERS = [
 ];
 const ELEMENTS = [
 	<Overview />,
-	// <About />,
-	// <Credits />
+	<About />,
+	<Credits />
 ];
 
 class App extends Component {
@@ -103,6 +103,7 @@ class App extends Component {
 			headerData: HEADERS[selector],
 			DetailsData: ELEMENTS[selector]
 		});
+		window.scrollTo(0, 0); // Add animation.
 	}
 
 	render() {
