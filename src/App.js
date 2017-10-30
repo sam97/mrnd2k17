@@ -5,6 +5,7 @@ import Timeline from './Timeline'
 import DayDetails from './DayDetails'
 import Footer from './Footer'
 
+import timeline from './datastore'
 import Overview from './Footer/Overview'
 import About from './Footer/About'
 import Credits from './Footer/Credits'
@@ -27,33 +28,6 @@ const ELEMENTS = [
 class App extends Component {
 	constructor(props) {
 		super(props);
-
-		/* Supposed to be the data store.  */
-		var timeline = [
-			{
-				// The date of that day.
-				date: new Date(2017, 9, 1),
-				// What happened on that day. (Better name?)
-				desc: "somethin' happened on the 1st",
-				// My personal opinions of that day. 'null' means I have nothing to say.
-				personalNote: "personell stuff, m8, bugger off"
-			},
-			{
-				date: new Date(2017, 9, 2),
-				desc: "somethin' happened on the 2nd",
-				personalNote: "personell stuff, m8, bugger off"
-			},
-			{
-				date: new Date(2017, 9, 3),
-				desc: "somethin' happened on the third",
-				personalNote: "personell stuff, m8, bugger off"
-			},
-			{
-				date: new Date(2017, 9, 4),
-				desc: "somethin' happened on the fourth",
-				personalNote: null
-			}
-		];
 		
 		this.state = {
 			DetailsData: ELEMENTS[OVERVIEW], // Holds one of the constants or timeline[i]. Defines what to render.
