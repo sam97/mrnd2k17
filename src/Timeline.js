@@ -20,6 +20,26 @@ class Timeline extends Component {
 	constructor(props) {
 		super(props);
 
+		this.pos = 0;
+		this.isDown = false;
+	}
+
+	onTimelineMouseDown(e) {
+		this.pos = e.screenX;
+		this.isDown = true;
+	}
+
+	onMouseMove(e) {
+		if(!this.isDown) return true;
+
+		let timeline = document.querySelector('.timeline');
+		timeline.scrollTo(timeline.scrollLeft - e.nativeEvent.movementX, 0);
+		this.pos = e.screenX;
+	}
+
+	onMouseUp(e) {
+		this.isDown = false;
+		this.pos = 0;
 	}
 
 	render() {
@@ -27,7 +47,12 @@ class Timeline extends Component {
 		var DateString = isDate ? this.props.currentDate.toString() : null;
 
 		return (
-			<div className="timeline">
+			<div
+				className="timeline"
+				onMouseDown={e => this.onTimelineMouseDown(e)}
+				onMouseMove={e => this.onMouseMove(e)}
+				onMouseUp={e => this.onMouseUp(e)}
+			>
 				{this.props.timeline.map((dayData, index) => {
 					return (
 						<TimeNode

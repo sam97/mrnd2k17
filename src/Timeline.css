@@ -1,5 +1,5 @@
 .timeline {
-	overflow: auto; /* Let browsers handle overflow. Adds a scrollbar if needed. */
+	overflow: hidden; /* Remove scrollbar in favour of dragscrolling or wheels. */
 	padding: 0 1em; /* Some padding. */
 	margin: 0; /* Remove margin in favour of padding on .timeline. */
 	background-color: lightyellow;
