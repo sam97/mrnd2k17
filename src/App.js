@@ -62,7 +62,6 @@ class App extends Component {
 	}
 
 	/* Fix the header on click.
-	 * TODO: Set DayDetails, too.
 	 */
 	onTimelineClick(newData, index) {
 		this.setState({

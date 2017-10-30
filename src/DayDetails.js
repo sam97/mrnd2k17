@@ -9,8 +9,8 @@ class DayDetails extends Component {
 					<h1>Day {this.props.day}</h1>
 					<p>{this.props.details.date.toLocaleDateString("en-IN")}</p>
 					<hr />
-					<p>{this.props.details.desc}</p>
-					<p>{this.props.details.personalNote}</p>
+					{this.props.details.desc}
+					{this.props.details.personalNote}
 				</div>
 			)
 		}
